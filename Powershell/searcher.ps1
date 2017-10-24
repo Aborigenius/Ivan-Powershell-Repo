@@ -1,5 +1,5 @@
 $Searcher = New-Object -TypeName System.DirectoryServices.DirectorySearcher
-$Searcher.SearchRoot = "LDAP://DC=u131,DC=nato,DC=int"
+$Searcher.SearchRoot = "LDAP://DC=domain,DC=name,DC=int"
 $Searcher.SearchScope = "subtree"
 $Searcher.Filter = "(objectClass=organizationalUnit)"
 $Searcher.PropertiesToLoad.Add('Distinguishedname') | Out-Null
