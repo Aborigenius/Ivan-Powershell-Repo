@@ -1,0 +1,49 @@
+<#
+    .Synopsis
+    Get A List Of Inactive Computers 
+    .DESCRIPTION
+    Get A List Of Inactive Computers where no one log in in the last 90 days
+    .EXAMPLE
+    Just Run it
+    .EXAMPLE
+    Another example of how to use this cmdlet
+#>
+Function Get-InactiveComputers{
+[cmdletbinding()]
+ param(
+ [string]$date
+)
+Clear-Host
+
+Write-Host " 1. Choose how many days to go back"
+Write-Host " 2. or accept the default (90)"
+
+$choice = Read-Host -Prompt "Enter Your Choice" 
+if($choice -eq "1"){
+$daysToGoBack = Read-Host -Prompt "Enter Days" 
+$time = (Get-Date).AddDays(-$daysToGoBack)
+}
+else {
+$time = (Get-Date).AddDays(-90)
+}
+Get-ADComputer -Filter {LastLogonTimeStamp -lt $time -and name -notlike "tlk*" -and name -notlike "nuhqsna*" -and name -notlike "unsfmws06*" -and OperatingSystem -notlike "Windows Server*" -and name -notlike "MININT*"} | sort name | select -ExpandProperty Name
+Write-Host `n
+# $OFS = "`r`n"
+# Write-Host "$inactive"`n
+
+
+Write-Host " 1. Do you want to disable and move them to Inactive OU?" 
+Write-Host " 2. Quit" `n
+$choice = Read-Host -Prompt "Enter Your Choice" 
+
+if($choice -eq "1"){
+
+ Get-ADComputer -Filter {LastLogonTimeStamp -lt $time -and name -notlike "tlk*" -and name -notlike "nuhqsna*" -and name -notlike "unsfmws06*" -and OperatingSystem -notlike "Windows Server*" -and name -notlike "MININT*"} | Move-ADObject -TargetPath "OU=Inactive,OU=Workstations,OU=NHQSA-NU-BUTMIR,DC=u131,DC=nato,DC=int"
+ 
+  Get-ADComputer -SearchBase "OU=Inactive,OU=Workstations,OU=NHQSA-NU-BUTMIR,DC=u131,DC=nato,DC=int" -filter * | Disable-AdAccount
+  } 
+
+else{
+Write-Host "Quiting, bye bye"
+}
+}

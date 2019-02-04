@@ -1,0 +1,44 @@
+Start: 05/24/2018 10:31:53
+Output file: report.txt
+ACL of the analyzed path: \\nuhqsfile1\EUFOR_Public\CBTD\Vehicle plan for monthly check up
+
+
+
+Path   : Microsoft.PowerShell.Core\FileSystem::\\nuhqsfile1\EUFOR_Public\CBTD\Vehicle plan for 
+         monthly check up
+Owner  : O:S-1-5-21-371918134-4178952264-1007793671-17157
+Group  : U131\Domain Users
+Access : U131\P CBTD Allow  Modify, Synchronize
+         NT AUTHORITY\SYSTEM Allow  FullControl
+         U131\H ADPSECURITY Allow  ReadAndExecute, Synchronize
+         U131\BazelkSt Allow  FullControl
+         U131\_taskomatic Allow  FullControl
+         U131\Domain Admins Allow  FullControl
+         U131\spiridiv Allow  FullControl
+         U131\MattyaAk Allow  FullControl
+         U131\TatarIo Allow  FullControl
+         U131\VaskovMl Allow  FullControl
+Audit  : 
+Sddl   : O:S-1-5-21-371918134-4178952264-1007793671-17157G:DUD:AI(A;OICIID;0x1301bf;;;S-1-5-21-3719
+         18134-4178952264-1007793671-7582)(A;OICIID;FA;;;SY)(A;OICIID;0x1200a9;;;S-1-5-21-371918134
+         -4178952264-1007793671-1177)(A;OICIID;FA;;;S-1-5-21-371918134-4178952264-1007793671-1400)(
+         A;OICIID;FA;;;S-1-5-21-371918134-4178952264-1007793671-2620)(A;OICIID;FA;;;DA)(A;OICIID;FA
+         ;;;S-1-5-21-371918134-4178952264-1007793671-5029)(A;OICIID;FA;;;S-1-5-21-371918134-4178952
+         264-1007793671-2045)(A;OICIID;FA;;;S-1-5-21-371918134-4178952264-1007793671-5048)(A;OICIID
+         ;FA;;;S-1-5-21-371918134-4178952264-1007793671-2671)
+
+
+
+
+------------------------
+plan for monthly check up for vehicle from CBTD
+------------------------
+
+------------------------
+reports
+------------------------
+
+Run completed at: 05/24/2018 10:31:53
+Elapsed Time:
+00:00:00.1650000
+

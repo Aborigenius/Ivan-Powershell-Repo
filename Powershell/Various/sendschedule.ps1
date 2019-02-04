@@ -1,0 +1,1 @@
+Send-MailMessage -SmtpServer "nuhqscas1" -From "ivan.spiridonov@nhqsa.nato.int" -To "ivan.spiridonov@nhqsa.nato.int" -Subject "Shift Schedule" -Body "Now with attachments" -Attachments '\\nuhqsfile1\Atco\System Administration\Shift Schedule\SYS ADMIN & ADP SCHEDULE 2019.xlsx'

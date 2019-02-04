@@ -1,0 +1,1 @@
+(Get-ChildItem .\_Applications -r| ? {$_.PSIsContainer -eq $True}) | ? {$_.GetFiles().Count -eq 0} | select FullName

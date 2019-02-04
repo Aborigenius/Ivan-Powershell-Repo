@@ -1,0 +1,1 @@
+﻿Get-CimInstance -ClassName win32_operatingsystem -ComputerName unhqsws0010 | select csname, lastbootuptime

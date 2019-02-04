@@ -1,0 +1,3 @@
+$date = Read-Host -Prompt "Enter The Date in the Following Format DAY/MONTH/YEAR"
+
+Search-ADAccount -AccountExpired -UsersOnly | where-Object {$_.accountexpiration date -lt $date} | select SamAccountName, LastLogonDate, AccountExpirationDate
