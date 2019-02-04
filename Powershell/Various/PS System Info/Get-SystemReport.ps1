@@ -1,5 +1,43 @@
-#Get HTML system report for single computer
-#Requires -Version 3.0
+
+<#PSScriptInfo
+
+.VERSION 0.8.0
+
+.GUID f956f543-ef88-4df1-bbc6-52ab19df984c
+
+.AUTHOR Ivan Spiridonov
+
+.COMPANYNAME ATCO Frontec Europe
+
+.COPYRIGHT Feel Free to use it
+
+.TAGS 
+
+.LICENSEURI 
+
+.PROJECTURI 
+
+.ICONURI 
+
+.EXTERNALMODULEDEPENDENCIES 
+
+.REQUIREDSCRIPTS 
+
+.EXTERNALSCRIPTDEPENDENCIES 
+
+.RELEASENOTES
+It's more proof of concept than anything else
+
+.PRIVATEDATA 
+
+#>
+
+<# 
+
+.DESCRIPTION 
+ Creates HTML system info report for a single computer. CSS file needed is named ps.css. 
+
+#> 
 
 [cmdletbinding()]
 Param(
