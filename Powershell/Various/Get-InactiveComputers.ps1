@@ -14,7 +14,7 @@
 	
 #>
 Function ListInactive {
-    Get-ADComputer -Filter {LastLogonTimeStamp -lt $time -and name -notlike "tlk*" -and name -notlike "nuhqsna*" -and name -notlike "unsfmws06*" -and OperatingSystem -notlike "Windows Server*" -and name -notlike "MININT*"} | Sort-Object name | Select-Object -ExpandProperty Name
+    Get-ADComputer -Filter {LastLogonTimeStamp -lt $time -and name -notlike "something*" -and name -notlike "something*" -and name -notlike "something*" -and OperatingSystem -notlike "Windows Server*" -and name -notlike "something*"} | Sort-Object name | Select-Object -ExpandProperty Name
 }
 
 Function Get-InactiveComputers {
@@ -44,9 +44,9 @@ Function Get-InactiveComputers {
 
     if ($choice -eq "1") {
 
-        ListInactive | Move-ADObject -TargetPath "OU=Inactive,OU=Workstations,OU=NHQSA-NU-BUTMIR,DC=u131,DC=nato,DC=int"
+        ListInactive | Move-ADObject -TargetPath "OU=Inactive,OU=Workstations,OU=OUNAME,DC=DomainName,DC=Domain,DC=com"
  
-        Get-ADComputer -SearchBase "OU=Inactive,OU=Workstations,OU=NHQSA-NU-BUTMIR,DC=u131,DC=nato,DC=int" -filter * | Disable-AdAccount
+        Get-ADComputer -SearchBase "OU=Inactive,OU=Workstations,OU=OUNAME,DC=u131,DC=nato,DC=com" -filter * | Disable-AdAccount
     } 
 
     else {

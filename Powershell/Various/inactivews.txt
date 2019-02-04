@@ -1,21 +1,3 @@
-UNHQSWS0001
-UNHQSWS0012
-UNHQSWS0023 
-UNHQSWS0029
-UNHQSWS0043
-UNHQSWS0044
-UNSFMWS0097 - OFF, CBTD
-UNSFMWS0178 - Off, CBTD
-UNSFMWS0179 - Off, Rowan Maxwell
-UNSFMWS0189 - Off, CBTD
-UNSFMWS0192 - Last Loged User OF6 Huston, could be in 
-UNSFMWS0197 - ???, no one logged in lately
-UNSFMWS0198 - SCCM Client reinstall initiated
-UNSFMWS0199 - SCCM Client reinstall initiated
-UNSFMWS0200 - Off, CBTD
-UNSFMWS0280 - Off, PIO
-UNSFMWS0444 - Off, EUFOR LEGAD
-UNSFMWS0455 - Software updates deployment check pushed
-UNSFMWS0522 - Software updates deployment check pushed
-UNSFMWS0523 - Software updates deployment check pushed
-UNSFMWS0579 - Off, no one logged in lately
+PC1
+PC3
+PC7

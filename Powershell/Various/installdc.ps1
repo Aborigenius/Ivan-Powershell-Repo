@@ -2,11 +2,11 @@
 Install-ADDSDomainController  `
  -CreateDnsDelegation:$false `
  -DatabasePath "C:\Windows\NTDS" `
--DomainName "m131.nato.int" `
+-DomainName "domain.some.com" `
 -InstallDns:$true `
  -LogPath "C:\Windows\NTDS" `
 -NoRebootOnCompletion:$false `
  -SysvolPath "C:\Windows\SYSVOL" `
  -NoGlobalCatalog:$false `
  -SafeModeAdministratorPassword `
-  (ConvertTo-SecureString "Uh@veD0NEitNow" -AsPlainText -Force) `
+  (ConvertTo-SecureString "UhavedoneitN0w" -AsPlainText -Force) `

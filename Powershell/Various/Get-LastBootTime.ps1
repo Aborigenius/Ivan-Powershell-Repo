@@ -13,11 +13,11 @@ Function Get-LastBootTime {
 #------      --------------
 #UNSFMWS0272 31-Jul-18 5:07:18 PM
 ##
-#PS C:\temp\Scripts> Get-LastBootTime -ComputerName unhqsws0014
+#PS C:\temp\Scripts> Get-LastBootTime -ComputerName Computername
 #
 #csname      LastBootUpTime
 #------      --------------
-#UNHQSWS0014 01-Aug-18 2:53:00 PM
+#Computername 01-Aug-18 2:53:00 PM
 [CmdletBinding()]
 Param
 (
