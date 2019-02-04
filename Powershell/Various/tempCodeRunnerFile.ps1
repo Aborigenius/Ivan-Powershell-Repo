@@ -1,0 +1,1 @@
+$servers = Get-ADComputer -filter {name -like "nuhqs*" -and name -notlike "*vh*" -and name -notlike "*nafs1" -and name -notlike "*cmcb" -and Name -notlike "*EXCH*"} |Sort-Object name |Select-Object -ExpandProperty name 

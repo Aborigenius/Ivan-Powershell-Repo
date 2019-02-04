@@ -7,10 +7,10 @@
 #Required - file exchanges.txt must be in the same folder, it contains the names of the servers
 ################################################################################################
 
-$servers = Get-ADComputer -filter {name -like "nuhqs*" -and name -notlike "*vh*"} |Sort-Object name |Select-Object -ExpandProperty name 
+$servers = Get-ADComputer -filter {name -like "nuhqs*" -and name -notlike "*vh*" -and name -notlike "*nafs1" -and name -notlike "*cmcb"} |Sort-Object name |Select-Object -ExpandProperty name 
 foreach ($server in $servers)
 {
-$services = Get-Service -Name back* -Exclude backupexecm* -ComputerName $server
+$services = Get-Service -Name back* -Exclude backupexecm*,BackupExecV* -ComputerName $server
 Write-Host -ForegroundColor Yellow $server
 foreach ($service in $services)
 {
