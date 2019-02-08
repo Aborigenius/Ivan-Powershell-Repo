@@ -106,7 +106,7 @@ foreach ($pc in $ComputerName) {
         # If Console Output is needed uncomment the next line
         # Get-SystemInfo $pc
         $fragments = @()
-        $imagePath = ".\icons\006-gear.png"
+        $imagePath = ".\icons\004-responsive.png"
         $imageBits = [Convert]::ToBase64String((Get-Content $ImagePath -Encoding Byte))
         $ImageFile = Get-Item $ImagePath
         $ImageType = $ImageFile.Extension.Substring(1) #strip off the leading .
