@@ -1,5 +1,5 @@
 body {
-    background-color: rgb(247, 246, 205)
+    background-color: #FFEBCD;
 }
 
 table {
@@ -13,22 +13,12 @@ table {
 tr:hover td {
     Background-Color: rgb(0, 127, 195);
     Color: rgb(255, 255, 255);
-    /*Font-Weight: bold;*/
 }
 
 tr:nth-child(even) {
-    Background-Color: rgb(188, 189, 182);
-    /*Font-Weight: bold;*/
+    Background-Color: #DCAE1D;
+    /* rgb(110, 122, 130); */
 }
-
-
-/*
-tr:nth-child(1)
-{
-Background-Color: rgb(0, 127, 195);
-Font-Weight: bold;
-}
-*/
 
 th {
     Text-Align: Left;
