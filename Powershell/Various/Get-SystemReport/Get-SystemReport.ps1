@@ -10,12 +10,12 @@
     ComputerName
 
 .INPUTS
-  ComputerName, one or many seperated by ,
+  ComputerName, one or many seperated by comma (,)
   Accepts variable containg computer names as well
 
 .OUTPUTS
-  HTML file in the follwoing Format
-  COMPUTERNameHTMLReport<TodaysDate>.html
+  HTML file in the follwoing Format:
+  COMPUTERNAMEHTMLReport<TodaysDate>.html
 
 .NOTES
   Version:        1.0
@@ -88,7 +88,7 @@ Function Get-SystemInfo {
 
     }
     Get-CimInstance -ClassName Win32_physicalMedia -ComputerName $pc | ForEach-Object { $hd = $_
-        New-Object -TypeName PSCustomObject -Property @{
+        New-Object -TypeName PSCustomObject -Property @{        
             Disk    = $hd.Tag
             Serial = $hd.SerialNumber
         }
@@ -121,6 +121,6 @@ foreach ($pc in $ComputerName) {
         $fragments += "<H2>System Info</H2>"
         $fragments += Get-SystemInfo -ComputerName $pc | ConvertTo-Html -Fragment -As List
         $filename = $pc.ToString().ToUpper() + "HtmlReport" + $((Get-Date).ToString('MM-dd-yyyy'))
-        ConvertTo-HTML -Title "OS Info" -body "$fragments" -PostContent "<H5><i>Generated on: $((Get-Date -Format f))</i></H5>" -CSSUri "ps.css" | Set-Content "$filename.html"
+        ConvertTo-HTML -Title "OS Info" -body "$fragments" -PostContent "<H5><i>Generated on: $((Get-Date -Format f)) by $env:UserName</i></H5>" -CSSUri "ps.css" | Set-Content "$filename.html"
     }
 }
