@@ -40,13 +40,15 @@ Param(
 Function Get-SystemInfo {
 
     Write-Host "Starting Report on: $pc"
-     
+    $cb = Get-CimInstance -ClassName win32_bios -ComputerName $pc 
     #this function has no real error handling
     $cs = Get-CimInstance -ClassName Win32_computersystem -ComputerName $pc  
     #this assumes a single processor
     $proc = Get-CimInstance -ClassName win32_processor -ComputerName $pc 
     #Get-CimInstance -ClassName Win32_physicalMedia | Select-Object Tag, SerialNumber
     $data = [ordered]@{
+        Manufacturer         = $cb.Manufacturer
+        Model                = $cs.Model
         TotalPhysicalMemGB   = $cs.TotalPhysicalMemory / 1GB -as [int]
         NumProcessors        = $cs.NumberOfProcessors
         NumLogicalProcessors = $cs.NumberOfLogicalProcessors
@@ -56,8 +58,10 @@ Function Get-SystemInfo {
         MaxClock             = $proc.MaxClockSpeed
         L2size               = $proc.L2CacheSize
         L3Size               = $proc.L3CacheSize
+        CPUSerialNumber      = $cb.SerialNumber
   
     }
+    New-Object -TypeName PSObject -Property $data
 
     Invoke-Command -ComputerName $pc -ScriptBlock { Get-CimInstance Win32_DiskDrive | ForEach-Object {
             $disk = $_
@@ -78,8 +82,8 @@ Function Get-SystemInfo {
                         RawSize     = $partition.Size
                         DriveLetter = $_.DeviceID
                         VolumeName  = $_.VolumeName
-                        Size        = [math]::Round(($_.Size / 1GB), 2) #'{0:d} GB' -f [int]($_.Size / 1GB)
-                        FreeSpace   = [math]::Round(($_.FreeSpace / 1GB), 2)
+                        Size        = ([math]::Round(($_.Size / 1GB), 2)).ToString() + ' GB' #'{0:d} GB' -f [int]($_.Size / 1GB)
+                        FreeSpace   = ([math]::Round(($_.FreeSpace / 1GB), 2)).ToString() + ' GB'
                               
                     }
                 }
@@ -89,8 +93,8 @@ Function Get-SystemInfo {
     }
     Get-CimInstance -ClassName Win32_physicalMedia -ComputerName $pc | ForEach-Object { $hd = $_
         New-Object -TypeName PSCustomObject -Property @{        
-            Disk    = $hd.Tag
             Serial = $hd.SerialNumber
+            Disk   = $hd.Tag
         }
     }
     # Invoke-Command -ComputerName $pc -ScriptBlock {Get-CimInstance -ClassName Win32_physicalMedia | ForEach-Object { $hd = $_
